@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "74f9f6fb-3cc0-4ea6-9a05-7af14fbae53a"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -31,7 +34,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/admin/css/sb-admin-2.min.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -55,7 +60,9 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "outputPath": "../../../public/assets/angular",
+              "deployUrl": "/assets/angular/"
             },
             "development": {
               "buildOptimizer": false,
@@ -63,7 +70,9 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "outputPath": "dist/assets/angular",
+              "baseHref": "/assets/angular/"
             }
           },
           "defaultConfiguration": "production"

@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --configuration=dev -o",
     "build": "ng build",
+    "build:prod": "ng build --prod && cp ../../../public/assets/angular/index.html ../../views/angular.blade.php",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -18,6 +19,8 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "ngx-spinner": "^12.0.0",
+    "ngx-toastr": "^14.1.4",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

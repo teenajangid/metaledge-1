@@ -1,0 +1,49 @@
+<div class="container-md">
+  <div class="row">
+    <div class="col-12 col-lg-8">
+      <div class="py-5">
+          <div class="text-left">
+              <h1 class="h4 text-gray-900 mb-4">Add Category</h1>
+          </div>
+          <form class="user" [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                  <small class="text-danger">(Choose "Select Parent Category" if you add a parent category)</small>
+                  <select class="form-control" id="name" formControlName="parent_id" aria-describedby="parent_id" placeholder="Enter Category Parent">
+                    <option selected value="0">Select Parent Category</option>
+                    <option *ngFor="let category of categoryAll" value="{{ category.id }}">{{ category.name }}</option>
+                  </select>
+                  <small *ngIf="validationField" class="text-danger">{{ validationFieldMessage.name }}</small>
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="name" formControlName="name" aria-describedby="name" placeholder="Enter Category Name">
+                  <small *ngIf="validationField" class="text-danger">{{ validationFieldMessage.name }}</small>
+              </div>
+              <div class="form-group">
+                  <textarea class="form-control" id="desc" formControlName="description" aria-describedby="desc" placeholder="Enter Category Description"></textarea>
+                  <small *ngIf="validationField" class="text-danger">{{ validationFieldMessage.desc }}</small>
+              </div>
+              <div class="form-group">
+                  <button type="button" (click)="removeImage()" *ngIf="imageSrc" class="btn btn-danger removeimage">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                  <img [src]="imageSrc" *ngIf="imageSrc" style="height: 300px; width:500px">
+                  <label class="imagedrag" *ngIf="imageSrc == ''">
+                    <input type="file" (change)="onFileChange($event)" class="d-none" id="image" formControlName="image" aria-describedby="image">
+                  </label>
+                <small *ngIf="validationField" class="text-danger">{{ validationFieldMessage.image }}</small>
+              </div>
+              <div class="form-group">
+                  <div class="custom-control custom-checkbox small">
+                      <input type="checkbox" class="custom-control-input" id="customCheck" formControlName="status" *ngIf="status" checked/>
+                      <input type="checkbox" class="custom-control-input" id="customCheck" formControlName="status" *ngIf="!status"/>
+                      <label class="custom-control-label" for="customCheck">Status</label>
+                  </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-user btn-block">
+                  Submit
+              </button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>

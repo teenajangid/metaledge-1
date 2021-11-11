@@ -1,0 +1,61 @@
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Product</h1>
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+      <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">View Product</h6>
+      </div>
+      <div class="card-body" *ngIf="products.length > 0">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Discount Price</th>
+                        <th>Category</th>
+                        <th>Subcategory</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                        <th>Status</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                      </tr>
+                  </thead>
+                  <tfoot>
+                      <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Discount Price</th>
+                        <th>Category</th>
+                        <th>Subcategory</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                        <th>Status</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                      </tr>
+                  </tfoot>
+                  <tbody>
+                    <tr *ngFor="let product of products">
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>{{ product.discount_price ==""?product.discount_price:'---' }}</td>
+                        <td>{{ product.category?product.category.name:'---' }}</td>
+                        <td>{{ product.subcategory?product.subcategory.name:'---' }}</td>
+                        <td>{{ (product.description)?((product.description).length == 10?product.description:product.description.substring(0,10)+'...'):'---' }}</td>
+                        <td><a href="{{ product.image }}" target="_blank">Click Here</a></td>
+                        <td><button (click)="changeStatus(product.id)" [class]="product.status==1?'btn btn-primary':'btn btn-danger'"><i class="fa fa-circle"></i></button></td>
+                        <td><button [routerLink]="['/admin/add-product',product.id]" routerLinkActive="router-link-active"  class="btn btn-primary"><i class="fa fa-pen"></i></button></td>
+                        <td><button (click)="deleteproduct(product.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+          <div class="card-body" *ngIf="products.length == 0">No Product</div>
+      </div>
+
+  </div>

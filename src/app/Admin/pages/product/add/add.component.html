@@ -1,0 +1,63 @@
+<div class="container-md">
+  <div class="row">
+    <div class="col-12 col-lg-8">
+      <div class="py-5">
+          <div class="text-left">
+              <h1 class="h4 text-gray-900 mb-4">Add Product</h1>
+          </div>
+          <form class="user" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                  <input type="text" class="form-control" id="name" formControlName="name" aria-describedby="name" placeholder="Enter Product Name">
+                  <small *ngIf="validationField" class="text-danger">{{ validationFieldMessage.name }}</small>
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="price" formControlName="price" aria-describedby="price" placeholder="Enter Product Price">
+                  <small *ngIf="validationField" class="text-danger">{{ validationFieldMessage.price }}</small>
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="discount_price" formControlName="discount_price" aria-describedby="discount_price" placeholder="Enter Product Discount Price">
+                  <small *ngIf="validationField" class="text-danger">{{ validationFieldMessage.discount_price }}</small>
+              </div>
+              <div class="form-group">
+                  <select class="form-control" id="category" formControlName="category" aria-describedby="category" (change)="showSubcategory($event)">
+                    <option selected value="0">Select Category</option>
+                    <option *ngFor="let category of categoryAll" value="{{ category.id }}" [selected]="category.id == categoryId">{{ category.name }}</option>
+                  </select>
+                  <small *ngIf="validationField" class="text-danger">{{ validationFieldMessage.category }}</small>
+              </div>
+              <div class="form-group">
+                  <select class="form-control" id="subcategory" formControlName="subcategory" aria-describedby="subcategory">
+                    <option selected value="0">Select Subcategory</option>
+                    <option *ngFor="let subcategory of subcategoryAll" value="{{ subcategory.id }}" [selected]="subcategory.id == subCategoryId">{{ subcategory.name }}</option>
+                  </select>
+                  <small *ngIf="validationField" class="text-danger">{{ validationFieldMessage.category }}</small>
+              </div>
+              <div class="form-group">
+                  <textarea class="form-control" id="desc" formControlName="description" aria-describedby="desc" placeholder="Enter Product Description"></textarea>
+                  <small *ngIf="validationField" class="text-danger">{{ validationFieldMessage.desc }}</small>
+              </div>
+              <div class="form-group">
+                  <button type="button" (click)="removeImage()" *ngIf="imageSrc" class="btn btn-danger removeimage">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                  <img [src]="imageSrc" *ngIf="imageSrc" style="height: 300px; width:500px">
+                  <label class="imagedrag" *ngIf="imageSrc == ''">
+                    <input type="file" (change)="onFileChange($event)" class="d-none" id="image" formControlName="image" aria-describedby="image">
+                  </label>
+                <small *ngIf="validationField" class="text-danger">{{ validationFieldMessage.image }}</small>
+              </div>
+              <div class="form-group">
+                  <div class="custom-control custom-checkbox small">
+                      <input type="checkbox" class="custom-control-input" id="customCheck" formControlName="status" *ngIf="status" checked/>
+                      <input type="checkbox" class="custom-control-input" id="customCheck" formControlName="status" *ngIf="!status"/>
+                      <label class="custom-control-label" for="customCheck">Status</label>
+                  </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-user btn-block">
+                  Submit
+              </button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
