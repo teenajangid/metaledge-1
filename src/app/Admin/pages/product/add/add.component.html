@@ -33,7 +33,8 @@
                   <small *ngIf="validationField" class="text-danger">{{ validationFieldMessage.category }}</small>
               </div>
               <div class="form-group">
-                  <textarea class="form-control" id="desc" formControlName="description" aria-describedby="desc" placeholder="Enter Product Description"></textarea>
+                  <ejs-richtexteditor formControlName="description" rows="10"></ejs-richtexteditor>
+                  <!-- <textarea class="form-control" id="desc" formControlName="description" aria-describedby="desc" placeholder="Enter Product Description"></textarea> -->
                   <small *ngIf="validationField" class="text-danger">{{ validationFieldMessage.desc }}</small>
               </div>
               <div class="form-group">

@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
       console.log(this.loginform.value)
       this.request.Post('login',this.loginform.value).subscribe((res:any)=>{
         localStorage.setItem("token",res.data.token);
+        localStorage.setItem("admin-token",res.data.user.name);
         this.route.navigate(['/admin/dashboard']);
       },(err)=>{console.log(err)});
     }else{

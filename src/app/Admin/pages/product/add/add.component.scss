@@ -4,3 +4,10 @@
   width: 100%;
   background: #fff;
 }
+.imagedrag:after {
+  content: "Drag Product Image";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

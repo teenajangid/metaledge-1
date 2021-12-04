@@ -24,6 +24,19 @@ import { ViewCategoryComponent } from './Admin/pages/category/view/view.componen
 import { ToastrModule } from 'ngx-toastr';
 import { AddProductComponent } from './Admin/pages/product/add/add.component';
 import { ViewProductComponent } from './Admin/pages/product/view/view.component';
+import { WebsiteComponent } from './Website/website/website.component';
+import { OwnSliderComponent } from './shared/own-slider/own-slider.component';
+import { AddBannerComponent } from './Admin/pages/banner/add/add.component';
+import { ViewBannerComponent } from './Admin/pages/banner/view/view.component';
+import { ProductGridComponent } from './shared/product-grid/product-grid.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
+import { ChangePasswordComponent } from './Admin/pages/admin/change-password/change-password.component';
+import { ProfileComponent } from './Admin/pages/admin/profile/profile.component';
+import { AddPageComponent } from './Admin/pages/page/add/add.component';
+import { ViewPageComponent } from './Admin/pages/page/view/view.component';
+import { AboutUsComponent } from './Website/pages/about-us/about-us.component';
+import { ContactUsComponent } from './Website/pages/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +54,18 @@ import { ViewProductComponent } from './Admin/pages/product/view/view.component'
     AddCategoryComponent,
     ViewCategoryComponent,
     AddProductComponent,
-    ViewProductComponent
+    ViewProductComponent,
+    WebsiteComponent,
+    OwnSliderComponent,
+    AddBannerComponent,
+    ViewBannerComponent,
+    ProductGridComponent,
+    ChangePasswordComponent,
+    ProfileComponent,
+    AddPageComponent,
+    ViewPageComponent,
+    AboutUsComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +73,9 @@ import { ViewProductComponent } from './Admin/pages/product/view/view.component'
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    RichTextEditorAllModule,
     ToastrModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [AuthGuard, RequestsService, {
     provide: HTTP_INTERCEPTORS,

@@ -28,7 +28,6 @@ export class AddCategoryComponent implements OnInit {
 
   constructor(private spinner:NgxSpinnerService,private request:RequestsService,private route:Router,private toastr:ToastrService,private activetedrouter:ActivatedRoute) { }
 
-
   ngOnInit(): void {
     this.showCategory();
     this.showAllCategory();
@@ -36,9 +35,8 @@ export class AddCategoryComponent implements OnInit {
   }
   showAllCategory(){
     this.request.Get('view-category').subscribe((res:any)=>{
-      console.log(res);
       this.categoryAll = res.data;
-    })
+    });
   }
   showCategory(){
     this.activetedrouter.params.subscribe((res:any)=>{
@@ -66,7 +64,7 @@ export class AddCategoryComponent implements OnInit {
         formData.append("image", this.image);
       }
       formData.append('name',this.categoryForm.value.name);
-      formData.append('parent_id',this.categoryForm.value.parent_id);
+      formData.append('parent_id',this.categoryForm.value.parent_id?this.categoryForm.value.parent_id:0);
       formData.append('status', this.categoryForm.value.status?"1":"0");
       if(this.categoryForm.value.description){
         formData.append('description',this.categoryForm.value.description);

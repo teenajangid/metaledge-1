@@ -42,9 +42,9 @@
                     <tr *ngFor="let product of products">
                         <td>{{ product.name }}</td>
                         <td>{{ product.price }}</td>
-                        <td>{{ product.discount_price ==""?product.discount_price:'---' }}</td>
-                        <td>{{ product.category?product.category.name:'---' }}</td>
-                        <td>{{ product.subcategory?product.subcategory.name:'---' }}</td>
+                        <td>{{ product.discount_price !=""?product.discount_price:'---' }}</td>
+                        <td>{{ product.category != null?product.category.name:'---' }}</td>
+                        <td>{{ product.subcategory != null?product.subcategory.name:'---' }}</td>
                         <td>{{ (product.description)?((product.description).length == 10?product.description:product.description.substring(0,10)+'...'):'---' }}</td>
                         <td><a href="{{ product.image }}" target="_blank">Click Here</a></td>
                         <td><button (click)="changeStatus(product.id)" [class]="product.status==1?'btn btn-primary':'btn btn-danger'"><i class="fa fa-circle"></i></button></td>

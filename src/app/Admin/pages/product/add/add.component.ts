@@ -5,12 +5,23 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { RequestsService } from 'src/app/service/requests.service';
 import { productModel } from '../product.model';
+import { ToolbarService, LinkService, ImageService, HtmlEditorService, TableService } from '@syncfusion/ej2-angular-richtexteditor';
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss']
+  styleUrls: ['./add.component.scss'],
+  providers: [ToolbarService, LinkService, ImageService, HtmlEditorService, TableService]
 })
 export class AddProductComponent implements OnInit {
+  public tools: object = {
+    items: [
+           'Bold', 'Italic', 'Underline', 'StrikeThrough', '|',
+           'FontName', 'FontSize', 'FontColor', 'BackgroundColor', '|',
+           'LowerCase', 'UpperCase', '|', 'Undo', 'Redo', '|',
+           'Formats', 'Alignments', '|', 'OrderedList', 'UnorderedList', '|',
+           'Indent', 'Outdent', '|', 'CreateLink','CreateTable',
+           'Image', '|', 'ClearFormat', 'Print', 'SourceCode', '|', 'FullScreen']
+  };
 
   validationMapping: any = {
     'name': { required:"Name is required"},
@@ -50,11 +61,13 @@ export class AddProductComponent implements OnInit {
         this.request.Get('view-product/'+this.productId).subscribe((res:any)=>{
           this.productForm.patchValue({name:res.data.name,price:res.data.price,discount_price:res.data.discount_price,description:res.data.description,category:res.data.category,status:res.data.status});
           this.imageSrc = res.data.image;
-          this.categoryId = res.data.category.id;
-          if(res.data.status == 1){
-            this.status = "checked";
-          }else{
-            this.status = "";
+          if(res.data.category){
+            this.categoryId = res.data.category.id;
+            if(res.data.status == 1){
+              this.status = "checked";
+            }else{
+              this.status = "";
+            }
           }
         })
       }
@@ -75,9 +88,8 @@ export class AddProductComponent implements OnInit {
       if(this.productForm.value.discount_price){
         formData.append('discount_price',this.productForm.value.discount_price);
       }
-      if(this.productForm.value.category){
-        formData.append('category',this.productForm.value.category);
-      }
+      console.log(this.productForm.value.category);
+      formData.append('category',this.productForm.value.category!=0?this.productForm.value.category:0);
       if(this.productForm.value.subcategory){
         formData.append('subcategory',this.productForm.value.subcategory);
       }
