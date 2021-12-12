@@ -26,5 +26,3 @@ export class RequestsService {
     return !!localStorage.getItem("token");
   }
 }
-git config --global user.email "you@example.com"
-  git config --global user.name "teenajangid"
