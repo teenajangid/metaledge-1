@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class RequestsService {
 
-  private apiUrl = "http://localhost:8000/api/";
+  private apiUrl = "http://metaledge.locallivenews.in/api/";
   constructor(private httpClient: HttpClient) { }
 
   public Get<T>(url: string): Observable<T> {
@@ -26,3 +26,5 @@ export class RequestsService {
     return !!localStorage.getItem("token");
   }
 }
+git config --global user.email "you@example.com"
+  git config --global user.name "teenajangid"
