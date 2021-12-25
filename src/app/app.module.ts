@@ -37,6 +37,8 @@ import { AddPageComponent } from './Admin/pages/page/add/add.component';
 import { ViewPageComponent } from './Admin/pages/page/view/view.component';
 import { AboutUsComponent } from './Website/pages/about-us/about-us.component';
 import { ContactUsComponent } from './Website/pages/contact-us/contact-us.component';
+import { CategoryGridComponent } from './shared/category-grid/category-grid.component';
+import { HeadingContentComponent } from './shared/heading-content/heading-content.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { ContactUsComponent } from './Website/pages/contact-us/contact-us.compon
     AddPageComponent,
     ViewPageComponent,
     AboutUsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    CategoryGridComponent,
+    HeadingContentComponent
   ],
   imports: [
     BrowserModule,

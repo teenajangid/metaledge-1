@@ -1,0 +1,10 @@
+.collection-box {
+    height: 250px;
+    background-size: cover;
+    color: #fff;
+    transition: 0.5s;
+}
+.collection-box:hover{
+    background-color: rgba(0,0,0,0.5);
+    background-blend-mode: color;
+}

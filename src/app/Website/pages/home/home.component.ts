@@ -12,7 +12,9 @@ export class HomeComponent implements OnInit {
   constructor(private request:RequestsService) { }
   sliderData:any = [];
   productData:any = [];
+  contentData:any;
   ngOnInit(): void {
+      this.contentData={"heading":"themetaledge", "content":"the best furniture"}
     this.viewBanner();
     this.viewProduct();
   }
