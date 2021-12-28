@@ -40,6 +40,12 @@ import { ContactUsComponent } from './Website/pages/contact-us/contact-us.compon
 import { CategoryGridComponent } from './shared/category-grid/category-grid.component';
 import { HeadingContentComponent } from './shared/heading-content/heading-content.component';
 import { BannerImageComponent } from './shared/banner-image/banner-image.component';
+import { NewsletterComponent } from './shared/newsletter/newsletter.component';
+import { BlogGridComponent } from './shared/blog-grid/blog-gridcomponent';
+import { CollectionComponent } from './Website/pages/collection/collection.component';
+import { ProductsComponent } from './Website/pages/products/products.component';
+import { MultiBlogsComponent } from './Website/pages/multi-blogs/multi-blogs.component';
+import { SingleBlogComponent } from './Website/pages/single-blog/single-blog.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +77,13 @@ import { BannerImageComponent } from './shared/banner-image/banner-image.compone
     ContactUsComponent,
     CategoryGridComponent,
     HeadingContentComponent,
-    BannerImageComponent
+    BannerImageComponent,
+    NewsletterComponent,
+    BlogGridComponent,
+    CollectionComponent,
+    ProductsComponent,
+    MultiBlogsComponent,
+    SingleBlogComponent
   ],
   imports: [
     BrowserModule,
